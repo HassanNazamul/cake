@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+// import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cake.cake.data.UserRepository;
@@ -42,9 +44,9 @@ public class MainController {
     // debugging purpose
     @ResponseBody
     @RequestMapping("/signUpDone")
-    public Users signUpDone(Model model, @ModelAttribute Users user) {
-        userRepository.save(user);
-        return user;
+    public Users signUpDone(Model model, @ModelAttribute Users users) {
+        userRepository.save(users);
+        return users;
     }
 
 }

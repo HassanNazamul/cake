@@ -100,14 +100,8 @@
 
                   <!-- Password input -->
                   <div class="form-outline mb-4">
-                    <input
-                      type="password"
-                      id="form3Example4"
-                      class="form-control"
-                    />
-                    <label class="form-label" for="form3Example4"
-                      >Password</label
-                    >
+                    <input type="password" id="password" class="form-control" />
+                    <label class="form-label" for="password">Password</label>
                   </div>
 
                   <!-- Password Confirmation -->
@@ -115,10 +109,10 @@
                     <input
                       th:field="*{password}"
                       type="password"
-                      id="form3Example4"
+                      id="confirmPassword"
                       class="form-control"
                     />
-                    <label class="form-label" for="form3Example4">
+                    <label class="form-label" for="confirmPassword">
                       Confirm Password</label
                     >
                   </div>
@@ -167,6 +161,9 @@
       </div>
     </section>
     <!-- Section: Design Block -->
+
+    <!-- Registration password checking and other validation script -->
+    <script th:src="@{/javascript/register.js}"></script>
 
     <!-- Bootstrap Javascript added -->
     <script
