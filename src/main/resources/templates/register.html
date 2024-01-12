@@ -53,31 +53,30 @@
 
             <div class="card bg-glass">
               <div class="card-body px-4 py-5 px-md-5">
-                <form>
+                <!-- User detail form -->
+                <form method="get" th:action="@{/#}" th:object="${user}">
                   <!-- 2 column grid layout with text inputs for the first and last names -->
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
                         <input
+                          th:field="*{fname}"
                           type="text"
-                          id="form3Example1"
+                          id="fname"
                           class="form-control"
                         />
-                        <label class="form-label" for="form3Example1"
-                          >First name</label
-                        >
+                        <label class="form-label" for="fname">First name</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
                         <input
+                          th:field="*{lname}"
                           type="text"
-                          id="form3Example2"
+                          id="lname"
                           class="form-control"
                         />
-                        <label class="form-label" for="form3Example2"
-                          >Last name</label
-                        >
+                        <label class="form-label" for="lname">Last name</label>
                       </div>
                     </div>
                   </div>
@@ -86,6 +85,7 @@
                   <div class="form-outline mb-4">
                     <input
                       type="email"
+                      th:field="*{email}"
                       id="form3Example3"
                       class="form-control"
                     />
@@ -109,6 +109,7 @@
                   <!-- Password Confirmation -->
                   <div class="form-outline mb-4">
                     <input
+                      th:field="*{password}"
                       type="password"
                       id="form3Example4"
                       class="form-control"

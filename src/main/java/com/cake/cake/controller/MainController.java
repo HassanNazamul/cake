@@ -1,7 +1,10 @@
 package com.cake.cake.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cake.cake.model.Users;
 
 @Controller
 public class MainController {
@@ -18,9 +21,13 @@ public class MainController {
         return "login";
     }
 
-    // register page and link is available on the login page (line:89)
+    // register page and link is available on the login page (line:89 | login.html)
+    // sending empty user object to be filled upon registratiob by the user in
+    // registration
+    // form (line: 57| register.html)
     @RequestMapping("/register")
-    public String register() {
+    public String register(Model model) {
+        model.addAttribute("user", new Users());
         return "register";
     }
 
