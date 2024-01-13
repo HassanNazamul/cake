@@ -11,6 +11,9 @@
       rel="stylesheet"
     />
 
+    <!-- JQueary CND -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <!-- Awesome font css CND -->
     <link
       rel="stylesheet"
@@ -19,7 +22,14 @@
 
     <!-- Custom Css -->
     <link rel="stylesheet" th:href="@{/css/login.css}" />
+
+    <style>
+      .error-message {
+        color: red;
+      }
+    </style>
   </head>
+
   <body>
     <!-- Section: Design Block -->
     <section class="background-radial-gradient overflow-hidden">
@@ -70,6 +80,7 @@
                           class="form-control"
                         />
                         <label class="form-label" for="fname">First name</label>
+                        <!-- Error Message -->
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
@@ -81,8 +92,10 @@
                           class="form-control"
                         />
                         <label class="form-label" for="lname">Last name</label>
+                        <!-- Error Message -->
                       </div>
                     </div>
+                    <p class="error-message" id="name-error"></p>
                   </div>
 
                   <!-- Email input -->
@@ -90,18 +103,18 @@
                     <input
                       type="email"
                       th:field="*{email}"
-                      id="form3Example3"
+                      id="email"
                       class="form-control"
                     />
-                    <label class="form-label" for="form3Example3"
-                      >Email address</label
-                    >
+                    <label class="form-label" for="email">Email address</label>
+                    <p class="error-message" id="email-error-message"></p>
                   </div>
 
                   <!-- Password input -->
                   <div class="form-outline mb-4">
                     <input type="password" id="password" class="form-control" />
                     <label class="form-label" for="password">Password</label>
+                    <p class="error-message" id="password-error-message"></p>
                   </div>
 
                   <!-- Password Confirmation -->
@@ -115,10 +128,18 @@
                     <label class="form-label" for="confirmPassword">
                       Confirm Password</label
                     >
+                    <p
+                      class="error-message"
+                      id="confirmpassword-error-message"
+                    ></p>
                   </div>
 
                   <!-- Submit button -->
-                  <button type="submit" class="btn btn-primary btn-block mb-4">
+                  <button
+                    type="submit"
+                    id="signUpBtn"
+                    class="btn btn-primary btn-block mb-4"
+                  >
                     Sign up
                   </button>
 
