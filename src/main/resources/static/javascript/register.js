@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // This function is to validate name
   function validateName() {
     var fname = $("#fname").val().trim();
     var lname = $("#lname").val().trim();
@@ -14,6 +15,7 @@ $(document).ready(function () {
     return isValid;
   }
 
+  // This function is to validate Email
   function validateEmail() {
     var email = $("#email").val().trim();
     var isValid = false;
@@ -28,39 +30,66 @@ $(document).ready(function () {
     return isValid;
   }
 
-  function validatePassword(input, errorElement) {
-    var value = $(input).val().trim();
+  // This function is to validate Password
+  function validatePassword() {
+    var password = $("#password").val().trim();
     var isValid = false;
 
-    if (value.length === "") {
-      $(errorElement).text("Password cannot be empty");
+    if (password === "") {
+      $("#password-error-message").text("Password cannot be empty");
       isValid = true;
     } else {
-      $(errorElement).text("");
+      $("#password-error-message").text("");
     }
 
     return isValid;
   }
 
-  $("#fname, #lname").on("input", function () {
-    $("#signUpBtn").prop("disabled", validateName());
+  // This function is to validate Confirm Password
+  function validateConfirmPassword() {
+    var password = $("#password").val().trim();
+    var confirmPassword = $("#confirmPassword").val().trim();
+    var isValid = false;
+
+    if (confirmPassword === "") {
+      $("#confirmpassword-error-message").text("password cannot be empty");
+      isValid = true;
+    } else if (password !== confirmPassword) {
+      $("#confirmpassword-error-message").text("password do not match");
+      isValid = true;
+    } else {
+      $("#confirmpassword-error-message").text("");
+    }
+
+    return isValid;
+  }
+
+  $("#fname, #lname").on("keyup", function () {
+    validateName();
   });
 
-  $("#email").on("input", function () {
-    $("#signUpBtn").prop("disabled", validateEmail());
+  $("#email").on("keyup", function () {
+    validateEmail();
   });
 
-  $("#password").on("input", function () {
-    $("#signUpBtn").prop(
-      "disabled",
-      validatePassword("#password", "#password-error-message")
-    );
+  $("#password").on("keyup", function () {
+    validatePassword();
   });
 
-  $("#confirmPassword").on("input", function () {
-    $("#signUpBtn").prop(
-      "disabled",
-      !validatePassword("#confirmPassword", "#confirmpassword-error-message")
-    );
+  $("#confirmPassword").on("keyup", function () {
+    validateConfirmPassword();
   });
+
+  function validateBtn() {
+    if (
+      validateName() === true &&
+      validateEmail() === true &&
+      validatePassword() === true &&
+      validateConfirmPassword() === true
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 });
