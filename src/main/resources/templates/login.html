@@ -11,6 +11,9 @@
       rel="stylesheet"
     />
 
+    <!-- JQueary CND -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <!-- Awesome font css CND -->
     <link
       rel="stylesheet"
@@ -53,31 +56,26 @@
 
             <div class="card bg-glass">
               <div class="card-body px-4 py-5 px-md-5">
-                <form>
+                <form method="get" th:action="@{/loginDone}">
                   <!-- 2 column grid layout with text inputs for the first and last names -->
 
                   <!-- Email input -->
                   <div class="form-outline mb-4">
                     <input
                       type="email"
-                      id="form3Example3"
+                      id="email"
+                      name="email"
                       class="form-control"
                     />
-                    <label class="form-label" for="form3Example3"
-                      >Email address</label
-                    >
+                    <label class="form-label" for="email">Email address</label>
+                    <p id="error-message" style="color: red"></p>
                   </div>
 
                   <!-- Password input -->
                   <div class="form-outline mb-4">
-                    <input
-                      type="password"
-                      id="form3Example4"
-                      class="form-control"
-                    />
-                    <label class="form-label" for="form3Example4"
-                      >Password</label
-                    >
+                    <input type="password" id="password" class="form-control" />
+                    <label class="form-label" for="password">Password</label>
+                    <p id="password-error-message" style="color: red"></p>
                   </div>
 
                   <!-- Submit button -->
@@ -90,7 +88,11 @@
                         >Register</a
                       >
                     </p>
-                    <button type="submit" class="btn btn-primary btn-block">
+                    <button
+                      id="loginBtn"
+                      type="submit"
+                      class="btn btn-primary btn-block"
+                    >
                       Login
                     </button>
                   </div>
@@ -134,6 +136,10 @@
       </div>
     </section>
     <!-- Section: Design Block -->
+
+    <!-- Getting User Detail Javascript -->
+
+    <script th:src="@{/javascript/getUser.js}"></script>
 
     <!-- Bootstrap Javascript added -->
     <script

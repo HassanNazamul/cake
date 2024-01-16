@@ -1,11 +1,13 @@
 package com.cake.cake.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cake.cake.data.UserRepository;
 import com.cake.cake.model.Users;
@@ -25,7 +27,15 @@ public class MainController {
 
     // login page and button is available on the home page Nav bar
     @RequestMapping("/login")
-    public String login() {
+    public String login(Model model) {
+        return "login";
+    }
+
+    @RequestMapping("/loginDone")
+    public String loginDone(@RequestParam String email) {
+
+        
+
         return "login";
     }
 
@@ -39,12 +49,11 @@ public class MainController {
         return "register";
     }
 
-    // debugging purpose
-    @ResponseBody
-    @RequestMapping("/signUpDone")
-    public Users signUpDone(Model model, @ModelAttribute Users users) {
-        userRepository.save(users);
-        return users;
-    }
+    // @RequestMapping("/signUpDone")
+    // public String signUpDone(Model model, @ModelAttribute Users users) {
+    // userRepository.save(users);
+
+    // return "login";
+    // }
 
 }
