@@ -11,6 +11,7 @@ import com.cake.cake.model.Users;
 @RepositoryRestResource(path = "users")
 public interface UserRepository extends CrudRepository<Users, Integer> {
 
+    // To get User email using Rest API CAll
     @RestResource(path = "email", rel = "email")
     @Query("SELECT new com.cake.cake.data.UserEmailDTO(u.email) FROM Users u WHERE u.email = :value")
     UserEmailDTO findByEmail(@Param("value") String email);

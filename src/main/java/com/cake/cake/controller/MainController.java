@@ -31,14 +31,6 @@ public class MainController {
         return "login";
     }
 
-    @RequestMapping("/loginDone")
-    public String loginDone(@RequestParam String email) {
-
-        
-
-        return "login";
-    }
-
     // register page and link is available on the login page (line:89 | login.html)
     // sending empty user object to be filled upon registratiob by the user in
     // registration

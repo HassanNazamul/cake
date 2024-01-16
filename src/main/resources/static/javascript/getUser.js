@@ -1,3 +1,4 @@
+//This file is dedicated to login page to detect user is register or not dynamically
 $(document).ready(function () {
   $("#email").on("input", async function () {
     var email = $("#email").val();
