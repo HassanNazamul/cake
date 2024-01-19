@@ -80,16 +80,16 @@ $(document).ready(function () {
     validateConfirmPassword();
   });
 
-  function validateBtn() {
-    if (
-      validateName() === true &&
-      validateEmail() === true &&
-      validatePassword() === true &&
-      validateConfirmPassword() === true
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // function enableBtn() {
+  // if (
+  //   validateName() === true &&
+  //   validateEmail() === true &&
+  //   validatePassword() === true &&
+  //   validateConfirmPassword() === true
+  // ) {
+  //   return true;
+  // } else {
+  //   return false;
+  // }
+  // }
 });
